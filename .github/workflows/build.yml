@@ -22,7 +22,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner.lowercase }}
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.MY_GITHUB_TOKEN }}
 
       - name: Build and push
@@ -31,4 +31,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository_owner.lowercase }}/protoc:latest
+          tags: ghcr.io/${{ github.repository_owner }}/protoc:latest
